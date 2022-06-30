@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Jun 2022 pada 21.27
+-- Waktu pembuatan: 30 Jun 2022 pada 09.42
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 7.4.28
 
@@ -127,7 +127,13 @@ INSERT INTO `auth_permission` (`id`, `permission`, `definition`) VALUES
 (66, 'crud_generator_add', 'Module crud generator'),
 (67, 'crud_generator_delete', 'Module crud generator'),
 (68, 'sidebar_view_configuration', 'Module sidebar'),
-(69, 'sidebar_view_settings', 'Module sidebar');
+(69, 'sidebar_view_settings', 'Module sidebar'),
+(87, 'skripsi_list', 'Module skripsi'),
+(88, 'skripsi_detail', 'Module skripsi'),
+(89, 'skripsi_add', 'Module skripsi'),
+(90, 'skripsi_update', 'Module skripsi'),
+(91, 'skripsi_delete', 'Module skripsi'),
+(92, 'sidebar_view_skripsi', 'Module sidebar');
 
 -- --------------------------------------------------------
 
@@ -145,6 +151,12 @@ CREATE TABLE `auth_permission_to_group` (
 --
 
 INSERT INTO `auth_permission_to_group` (`permission_id`, `group_id`) VALUES
+(47, 3),
+(48, 3),
+(49, 3),
+(50, 3),
+(51, 3),
+(55, 3),
 (1, 2),
 (2, 2),
 (3, 2),
@@ -211,15 +223,15 @@ INSERT INTO `auth_permission_to_group` (`permission_id`, `group_id`) VALUES
 (64, 2),
 (68, 2),
 (69, 2),
+(92, 2),
 (65, 2),
 (66, 2),
 (67, 2),
-(47, 3),
-(48, 3),
-(49, 3),
-(50, 3),
-(51, 3),
-(55, 3);
+(87, 2),
+(88, 2),
+(89, 2),
+(90, 2),
+(91, 2);
 
 -- --------------------------------------------------------
 
@@ -247,7 +259,7 @@ CREATE TABLE `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id_user`, `name`, `photo`, `email`, `password`, `token`, `last_login`, `ip_address`, `is_active`, `created`, `modified`, `is_delete`) VALUES
-(1, 'Administrator', '300622015940_Picture1.png', 'admin@admin.com', '$2y$10$j6T3cDmcbgpTFWSpZ9UA4usdNecAtwv5e/nAPrsQRanPMPGjJxYum', '4cd8233f57ea815079bd12c551e4aa11', '2022-06-30 02:21:00', '::1', '1', '2022-06-28 10:31:00', '2022-06-30 01:59:40', '0'),
+(1, 'Administrator', '300622015940_Picture1.png', 'admin@admin.com', '$2y$10$j6T3cDmcbgpTFWSpZ9UA4usdNecAtwv5e/nAPrsQRanPMPGjJxYum', '4cd8233f57ea815079bd12c551e4aa11', '2022-06-30 11:43:00', '::1', '1', '2022-06-28 10:31:00', '2022-06-30 01:59:40', '0'),
 (2, 'Muhammad Royyan Zamzami', '', 'royyan@gmail.com', '$2y$10$N5XRDBkoARG05PYLYXyjC.AlrJUVN8HgF0rj9./27c4pShjiCZHMm', '2591a1a68b58f4de43c4c10647cc85c2', '2022-06-28 13:13:00', '::1', '1', '2022-06-28 10:33:16', '2022-06-28 10:47:23', '1'),
 (3, 'Muhammad Royyan', '290622152611_Picture1.png', 'royyan@gmail.com', '$2y$10$kGym5FmVY/TtrsLh8/7pcuWtPhREPSVQ2lp1D6.su5JlOmiQ3CPR.', 'f2fd0a84e9c497409ecc74919a979960', '2022-06-29 15:26:00', '::1', '1', '2022-06-29 15:26:11', NULL, '0'),
 (4, 'tes', '', 'tes@tes.com', '$2y$10$Lb/t7E7ANu3JuTnYCroB8.FWrnxRHGxRSy9l4/G3waFz.Njztlzsy', '46fbb956dde6bfc1b63bce54bfce5f57', NULL, NULL, '1', '2022-06-29 15:27:58', NULL, '0');
@@ -622,7 +634,72 @@ INSERT INTO `ci_user_log` (`id`, `user`, `ip_address`, `controller`, `url`, `dat
 (326, 1, '::1', 'Group', '/belajar/build/cpanel/group/access_control/db40b8c5e642682c8ce73c343736cb8429c9be1be093c65647424fb93ff9830846c15051f9ebdb438f02086a69344186e31d0f6c8e93a30d06c45369b33a04dfCdeePe3ros32QgXnZilQU1~~7omCjlvqxDiKClfBhhY-', NULL, '2022-06-30 02:25:55');
 INSERT INTO `ci_user_log` (`id`, `user`, `ip_address`, `controller`, `url`, `data`, `created_at`) VALUES
 (327, 1, '::1', 'Group', '/belajar/build/cpanel/group/save_acces_control/db40b8c5e642682c8ce73c343736cb8429c9be1be093c65647424fb93ff9830846c15051f9ebdb438f02086a69344186e31d0f6c8e93a30d06c45369b33a04dfCdeePe3ros32QgXnZilQU1~~7omCjlvqxDiKClfBhhY-', '{\"id\":[\"47\",\"48\",\"49\",\"50\",\"51\",\"55\"],\"submit\":\"\"}', '2022-06-30 02:26:27'),
-(328, 1, '::1', 'Group', '/belajar/build/cpanel/group', NULL, '2022-06-30 02:26:27');
+(328, 1, '::1', 'Group', '/belajar/build/cpanel/group', NULL, '2022-06-30 02:26:27'),
+(329, 1, '::1', 'title', '/belajar/build/cpanel/dashboard', NULL, '2022-06-30 02:42:17'),
+(330, 1, '::1', 'title', '/belajar/build/cpanel/dashboard', NULL, '2022-06-30 02:43:06'),
+(331, 1, '::1', 'title', '/belajar/build/cpanel/core/reset_password', NULL, '2022-06-30 02:43:09'),
+(332, 1, '::1', 'title', '/belajar/build/cpanel/dashboard', NULL, '2022-06-30 02:45:13'),
+(333, 1, '::1', 'title', '/belajar/build/cpanel/dashboard', NULL, '2022-06-30 11:43:49'),
+(334, 1, '::1', 'Main Menu', '/belajar/build/cpanel/main_menu', NULL, '2022-06-30 11:43:54'),
+(335, 1, '::1', 'Main Menu', '/belajar/build/cpanel/main_menu/update/e20af9eef4bf87591d5a8a74cb3f17d002f85cb0a49be10a195d7bf8897a63b4f61bc48d3f766e3d03e0d33a1dcb9cb75f248ac036475ea8a259ad094ee0a670AnxVtGy3fPdX47qRDdmTEFkHBjBPo6qrPyFmLM0eg7s-', NULL, '2022-06-30 11:44:02'),
+(336, 1, '::1', 'Main Menu', '/belajar/build/cpanel/main_menu', NULL, '2022-06-30 11:44:03'),
+(337, 1, '::1', 'Main Menu', '/belajar/build/cpanel/main_menu/add', NULL, '2022-06-30 11:44:08'),
+(338, 1, '::1', 'Main Menu', '/belajar/build/cpanel/main_menu', NULL, '2022-06-30 11:44:13'),
+(339, 1, '::1', 'Main Menu', '/belajar/build/cpanel/main_menu', NULL, '2022-06-30 13:06:25'),
+(340, 1, '::1', 'title', '/belajar/build/cpanel/permission', NULL, '2022-06-30 13:06:30'),
+(341, 1, '::1', 'M crud Generator', '/belajar/build/cpanel/m_crud_generator', NULL, '2022-06-30 13:06:33'),
+(342, 1, '::1', 'title', '/belajar/build/mcrud', NULL, '2022-06-30 13:06:57'),
+(343, 1, '::1', 'M crud Generator', '/belajar/build/cpanel/m_crud_generator', NULL, '2022-06-30 13:07:01'),
+(344, 1, '::1', 'title', '/belajar/newProject/cpanel/dashboard', NULL, '2022-06-30 14:35:04'),
+(345, 1, '::1', 'M crud Generator', '/belajar/newProject/cpanel/m_crud_generator', NULL, '2022-06-30 14:35:15'),
+(346, 1, '::1', 'title', '/belajar/newProject/mcrud', NULL, '2022-06-30 14:35:17'),
+(347, 1, '::1', 'title', '/belajar/newProject//mcrud/getTable/skripsi', NULL, '2022-06-30 14:35:19'),
+(348, 1, '::1', 'title', '/belajar/newProject/mcrud/action', '{\"table\":\"skripsi\",\"title\":\"Skripsi\",\"controllers\":\"Skripsi\",\"primary_key\":\"id_skripsi\",\"mcrud\":{\"1\":{\"id_skripsi\":{\"field_name\":\"id_skripsi\",\"sort\":\"1\",\"field_label\":\"Id skripsi\",\"form_type\":\"number\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\"}},\"2\":{\"nim\":{\"field_name\":\"nim\",\"sort\":\"2\",\"show_in_table\":\"true\",\"show_in_add\":\"true\",\"show_in_update\":\"true\",\"show_in_view\":\"true\",\"show_in_filter\":\"true\",\"field_label\":\"Nim\",\"form_type\":\"number\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\",\"rules\":[\"required\",\"numeric\"]}},\"3\":{\"mahasiswa\":{\"field_name\":\"mahasiswa\",\"sort\":\"3\",\"show_in_table\":\"true\",\"show_in_add\":\"true\",\"show_in_update\":\"true\",\"show_in_view\":\"true\",\"show_in_filter\":\"true\",\"field_label\":\"Mahasiswa\",\"form_type\":\"text\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\",\"rules\":[\"required\"]}},\"4\":{\"judul\":{\"field_name\":\"judul\",\"sort\":\"4\",\"show_in_table\":\"true\",\"show_in_add\":\"true\",\"show_in_update\":\"true\",\"show_in_view\":\"true\",\"show_in_filter\":\"true\",\"field_label\":\"Judul\",\"form_type\":\"text_editor\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\",\"rules\":[\"required\"]}},\"5\":{\"pembimbing\":{\"field_name\":\"pembimbing\",\"sort\":\"5\",\"show_in_table\":\"true\",\"show_in_add\":\"true\",\"show_in_update\":\"true\",\"show_in_view\":\"true\",\"show_in_filter\":\"true\",\"field_label\":\"Pembimbing\",\"form_type\":\"text\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\",\"rules\":[\"required\"]}},\"6\":{\"masa_berlaku\":{\"field_name\":\"masa_berlaku\",\"sort\":\"6\",\"show_in_table\":\"true\",\"show_in_add\":\"true\",\"show_in_update\":\"true\",\"show_in_view\":\"true\",\"show_in_filter\":\"true\",\"field_label\":\"Masa berlaku\",\"form_type\":\"date\",\"option\":[{\"label\":\"\",\"value\":\"\"}],\"relation_table\":\"\",\"relation_value\":\"\",\"relation_label\":\"\",\"rules\":[\"required\"]}}}}', '2022-06-30 14:36:19'),
+(349, 1, '::1', 'M crud Generator', '/belajar/newProject/cpanel/m_crud_generator', NULL, '2022-06-30 14:36:22'),
+(350, 1, '::1', 'File manager', '/belajar/newProject/cpanel/filemanager', NULL, '2022-06-30 14:36:29'),
+(351, 1, '::1', 'Main Menu', '/belajar/newProject/cpanel/main_menu', NULL, '2022-06-30 14:36:30'),
+(352, 1, '::1', 'Main Menu', '/belajar/newProject/cpanel/main_menu', NULL, '2022-06-30 14:36:31'),
+(353, 1, '::1', 'Main Menu', '/belajar/newProject/cpanel/main_menu/add', NULL, '2022-06-30 14:36:32'),
+(354, 1, '::1', 'title', '/belajar/newProject/cpanel/core/icon', NULL, '2022-06-30 14:36:41'),
+(355, 1, '::1', 'Main Menu', '/belajar/newProject/cpanel/main_menu/add_action', '{\"menu\":\"Skripsi\",\"icon\":\"fa fa-bandcamp\",\"type\":\"controller\",\"controller\":\"skripsi\",\"data_target\":\"\",\"is_parent\":\"0\",\"is_active\":\"1\",\"submit\":\"save\"}', '2022-06-30 14:37:04'),
+(356, 1, '::1', 'Main Menu', '/belajar/newProject/cpanel/main_menu', NULL, '2022-06-30 14:37:04'),
+(357, 1, '::1', 'Main Menu', '/belajar/newProject/cpanel/main_menu/save', '{\"data\":\"[{\\\"id\\\":36},{\\\"id\\\":37,\\\"children\\\":[{\\\"id\\\":38},{\\\"id\\\":39},{\\\"id\\\":40}]},{\\\"id\\\":7,\\\"children\\\":[{\\\"id\\\":34},{\\\"id\\\":3},{\\\"id\\\":54}]},{\\\"id\\\":48},{\\\"id\\\":57}]\"}', '2022-06-30 14:37:08'),
+(358, 1, '::1', 'Main Menu', '/belajar/newProject/cpanel/main_menu', NULL, '2022-06-30 14:37:09'),
+(359, 1, '::1', 'Skripsi', '/belajar/newProject/cpanel/skripsi', NULL, '2022-06-30 14:37:11'),
+(360, 1, '::1', 'title', '/belajar/newProject/cpanel/%20skripsi/add', NULL, '2022-06-30 14:37:16'),
+(361, 1, '::1', 'Skripsi', '/belajar/newProject/cpanel/skripsi', NULL, '2022-06-30 14:37:18'),
+(362, 1, '::1', 'Skripsi', '/belajar/newProject/cpanel/skripsi', NULL, '2022-06-30 14:37:20'),
+(363, 1, '::1', 'title', '/belajar/newProject/cpanel/dashboard', NULL, '2022-06-30 14:37:21'),
+(364, 1, '::1', 'User', '/belajar/newProject/cpanel/user', NULL, '2022-06-30 14:37:22'),
+(365, 1, '::1', 'Group', '/belajar/newProject/cpanel/group', NULL, '2022-06-30 14:37:24'),
+(366, 1, '::1', 'Group', '/belajar/newProject/cpanel/group/access_control/9c0e432231958240aee0d42decbf4d4ad9202abfd2767390da91f7eb8f5def3dede0417f7fefcc900968aababfaac363dbe34aafa4bd87a1d2017f3f95b55c683crcikdzX6tTSR_1PHdePLY6i3Xv9CXlODRgGJrmaXs-', NULL, '2022-06-30 14:37:26'),
+(367, 1, '::1', 'Group', '/belajar/newProject/cpanel/group/save_acces_control/9c0e432231958240aee0d42decbf4d4ad9202abfd2767390da91f7eb8f5def3dede0417f7fefcc900968aababfaac363dbe34aafa4bd87a1d2017f3f95b55c683crcikdzX6tTSR_1PHdePLY6i3Xv9CXlODRgGJrmaXs-', '{\"id\":[\"1\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\",\"8\",\"9\",\"10\",\"11\",\"12\",\"13\",\"14\",\"15\",\"16\",\"17\",\"18\",\"19\",\"20\",\"21\",\"22\",\"23\",\"24\",\"25\",\"26\",\"27\",\"28\",\"29\",\"30\",\"31\",\"32\",\"33\",\"34\",\"35\",\"36\",\"37\",\"38\",\"39\",\"40\",\"41\",\"42\",\"43\",\"44\",\"45\",\"46\",\"47\",\"48\",\"49\",\"50\",\"51\",\"52\",\"53\",\"54\",\"55\",\"56\",\"57\",\"58\",\"59\",\"60\",\"61\",\"62\",\"63\",\"64\",\"68\",\"69\",\"92\",\"65\",\"66\",\"67\",\"87\",\"88\",\"89\",\"90\",\"91\"],\"submit\":\"\"}', '2022-06-30 14:37:37'),
+(368, 1, '::1', 'Group', '/belajar/newProject/cpanel/group', NULL, '2022-06-30 14:37:37'),
+(369, 1, '::1', 'Skripsi', '/belajar/newProject/cpanel/skripsi', NULL, '2022-06-30 14:37:39'),
+(370, 1, '::1', 'title', '/belajar/newProject/cpanel/%20skripsi/add', NULL, '2022-06-30 14:37:41'),
+(371, 1, '::1', 'Skripsi', '/belajar/newProject/cpanel/skripsi', NULL, '2022-06-30 14:37:43'),
+(372, 1, '::1', 'title', '/belajar/newProject/cpanel/%20skripsi/add', NULL, '2022-06-30 14:37:45'),
+(373, 1, '::1', 'Skripsi', '/belajar/newProject/cpanel/skripsi', NULL, '2022-06-30 14:37:47'),
+(374, 1, '::1', 'title', '/belajar/newProject/cpanel/%20skripsi/filter/', NULL, '2022-06-30 14:37:53'),
+(375, 1, '::1', 'Skripsi', '/belajar/newProject/cpanel/skripsi', NULL, '2022-06-30 14:37:54'),
+(376, 1, '::1', 'title', '/belajar/newProject/cpanel/%20skripsi/filter/', NULL, '2022-06-30 14:37:55'),
+(377, 1, '::1', 'Skripsi', '/belajar/newProject/cpanel/skripsi', NULL, '2022-06-30 14:37:56'),
+(378, 1, '::1', 'title', '/belajar/newProject/cpanel/%20skripsi/add', NULL, '2022-06-30 14:37:57'),
+(379, 1, '::1', 'Skripsi', '/belajar/newProject/cpanel/skripsi', NULL, '2022-06-30 14:37:58'),
+(380, 1, '::1', 'Skripsi', '/belajar/newProject/cpanel/skripsi', NULL, '2022-06-30 14:38:32'),
+(381, 1, '::1', 'Skripsi', '/belajar/newProject/cpanel/skripsi/add', NULL, '2022-06-30 14:38:34'),
+(382, 1, '::1', 'Skripsi', '/belajar/newProject/cpanel/skripsi/add_action', '{\"nim\":\"1841720053\",\"mahasiswa\":\"Muhammad Royyan Zamzami\",\"judul\":\"<p>Cari data menggunakan metode ngamuk<\\/p>\",\"pembimbing\":\"Pak Burhan\",\"masa_berlaku\":\"2022-07-30\",\"submit\":\"add\"}', '2022-06-30 14:39:18'),
+(383, 1, '::1', 'Skripsi', '/belajar/newProject/cpanel/skripsi', NULL, '2022-06-30 14:39:19'),
+(384, 1, '::1', 'Skripsi', '/belajar/newProject/cpanel/skripsi', NULL, '2022-06-30 14:39:21'),
+(385, 1, '::1', 'title', '/belajar/newProject/cpanel/permission', NULL, '2022-06-30 14:39:27'),
+(386, 1, '::1', 'Group', '/belajar/newProject/cpanel/group', NULL, '2022-06-30 14:39:28'),
+(387, 1, '::1', 'Group', '/belajar/newProject/cpanel/group/access_control/fb245d867dab33289f19d70619aafc521af7195b983cebb84c73376126435eb819b59aec3ad6202df1e992f6b421f9b353a8fe6f685aac06c0efe82cd1d15869w6dcxEzRjKwX228aDD9qbyXRG587_WkrIb9itD~XekA-', NULL, '2022-06-30 14:39:30'),
+(388, 1, '::1', 'Skripsi', '/belajar/newProject/cpanel/skripsi', NULL, '2022-06-30 14:39:35'),
+(389, 1, '::1', 'Skripsi', '/belajar/newProject/cpanel/skripsi', NULL, '2022-06-30 14:41:21'),
+(390, 1, '::1', 'Skripsi', '/belajar/newProject/cpanel/skripsi/detail/1acf41f6b511f9839749c2fbbe2b4620bb7827d1f3c1e5a27210eb8b056f9c713c84c84ddf0a911df074e99eaca4c1d3f6cc110c87ec184fad14200b32dd16dfBCzBcL7DjOtRwRyjrpRudW4ED_TZNu7GPxlLYJpxKL4-', NULL, '2022-06-30 14:41:27'),
+(391, 1, '::1', 'Skripsi', '/belajar/newProject/cpanel/skripsi', NULL, '2022-06-30 14:41:28'),
+(392, 1, '::1', 'Skripsi', '/belajar/newProject/cpanel/skripsi/update/d1be90c1e6422c5390100c00070d1f6f84bde8ea228705b101e0f2a02fa7f8f81462fcdd9b59f8db71e940061fdce8e7592b124b0bad602a90193b05a8d8f957tfNetTOw0Aucs4ZB9JJfCdo7md0SEkbAUtIyd~KRvnI-', NULL, '2022-06-30 14:41:29'),
+(393, 1, '::1', 'Skripsi', '/belajar/newProject/cpanel/skripsi', NULL, '2022-06-30 14:41:31');
 
 -- --------------------------------------------------------
 
@@ -681,7 +758,8 @@ INSERT INTO `main_menu` (`id_menu`, `is_parent`, `menu`, `slug`, `type`, `contro
 (39, 37, 'groups', 'groups', 'controller', 'group', NULL, '', '1', 4, '2020-10-27 08:48:28', '2020-10-27 20:24:12'),
 (40, 37, 'permission', 'permission', 'controller', 'permission', NULL, '', '1', 5, '2020-10-27 08:49:49', '2020-10-29 22:47:10'),
 (48, 0, 'm-crud generator', 'm-crud-generator', 'controller', 'm_crud_generator', '', 'mdi mdi-xml', '1', 10, '2020-11-01 12:23:11', '2020-11-22 00:06:35'),
-(54, 7, 'file manager', 'file-manager', 'controller', 'filemanager', '', 'mdi mdi-folder-multiple-image', '1', 9, '2020-11-08 00:44:38', NULL);
+(54, 7, 'file manager', 'file-manager', 'controller', 'filemanager', '', 'mdi mdi-folder-multiple-image', '1', 9, '2020-11-08 00:44:38', NULL),
+(57, 0, 'skripsi', 'skripsi', 'controller', 'skripsi', '', 'fa fa-bandcamp', '1', 11, '2022-06-30 14:37:04', NULL);
 
 -- --------------------------------------------------------
 
@@ -720,7 +798,8 @@ CREATE TABLE `modules_crud_generator` (
 
 INSERT INTO `modules_crud_generator` (`id`, `module`, `module_name`, `table`, `created_at`) VALUES
 (1, 'Mahasiswa', 'Mahasiswa', 'mahasiswa', '2022-06-28 10:40:00'),
-(2, 'Kelas', 'Kelas', 'kelas', '2022-06-28 11:02:00');
+(2, 'Kelas', 'Kelas', 'kelas', '2022-06-28 11:02:00'),
+(3, 'Skripsi', 'Skripsi', 'skripsi', '2022-06-30 14:36:00');
 
 -- --------------------------------------------------------
 
@@ -755,6 +834,28 @@ INSERT INTO `setting` (`id_setting`, `group`, `options`, `value`) VALUES
 (53, 'sosmed', 'twitter', '#'),
 (60, 'config', 'maintenance_status', 'N'),
 (61, 'config', 'user_log_status', 'Y');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `skripsi`
+--
+
+CREATE TABLE `skripsi` (
+  `id_skripsi` int(11) NOT NULL,
+  `nim` varchar(100) NOT NULL,
+  `mahasiswa` varchar(100) NOT NULL,
+  `judul` text NOT NULL,
+  `pembimbing` varchar(100) NOT NULL,
+  `masa_berlaku` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `skripsi`
+--
+
+INSERT INTO `skripsi` (`id_skripsi`, `nim`, `mahasiswa`, `judul`, `pembimbing`, `masa_berlaku`) VALUES
+(1, '1841720053', 'Muhammad Royyan Zamzami', '<p>Cari data menggunakan metode ngamuk</p>', 'Pak Burhan', '2022-07-30');
 
 --
 -- Indexes for dumped tables
@@ -809,6 +910,12 @@ ALTER TABLE `setting`
   ADD PRIMARY KEY (`id_setting`);
 
 --
+-- Indeks untuk tabel `skripsi`
+--
+ALTER TABLE `skripsi`
+  ADD PRIMARY KEY (`id_skripsi`);
+
+--
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
@@ -822,7 +929,7 @@ ALTER TABLE `auth_group`
 -- AUTO_INCREMENT untuk tabel `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT untuk tabel `auth_user`
@@ -834,7 +941,7 @@ ALTER TABLE `auth_user`
 -- AUTO_INCREMENT untuk tabel `ci_user_log`
 --
 ALTER TABLE `ci_user_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=329;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=394;
 
 --
 -- AUTO_INCREMENT untuk tabel `filemanager`
@@ -846,13 +953,19 @@ ALTER TABLE `filemanager`
 -- AUTO_INCREMENT untuk tabel `main_menu`
 --
 ALTER TABLE `main_menu`
-  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT untuk tabel `modules_crud_generator`
 --
 ALTER TABLE `modules_crud_generator`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `skripsi`
+--
+ALTER TABLE `skripsi`
+  MODIFY `id_skripsi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
